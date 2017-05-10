@@ -1,0 +1,39 @@
+1. Movement:
+	* Make the robot move forward for 3 seconds and stop.
+	
+	* Make the robot spin around the center.
+	
+	* Make the robot spin around one wheel.
+	
+	* Make the robot move in a figure 8 pattern.
+	
+2. Bump Sensors:
+	* Start the robot moving forward. When it is bumped in the center,
+	  make the robot reverse its direction.
+	  
+	* Make the robot follow a wall using the bump sensors
+	  
+	* Set up obstacles in a slalom pattern. Make the robot bounce off each obstacle using the bump sensors.
+
+3. Light Sensors:
+	* Make the robot follow along the wall without touching it
+	
+4. Distance Sensors:
+	* Using a measuring device, figure out the unit of measurement that the getDistance() method uses.
+	
+	* Make the robot move exactly 3 feet and stop. **** DO NOT USE sleep(int) ****
+	
+5. Angle Sensors:
+	* Make the robot spin exactly 90 degrees and stop. **** DO NOT USE sleep(int) ****
+	
+	* Make the robot go forward at full speed. Use the angle sensor to keep it in a strait line.
+
+6. Distance and Angle Sensors:
+	* Make the robot repeatedly move forward for exactly 1 foot, turn around 180 degrees, return to its original position, and turn another 180 degrees. 
+	  **** DO NOT USE sleep(int) ****
+	  
+	
+7. Sonar Sensors
+	* Make the robot run away from any object detected by the sonar sensors
+
+	* Use the light sensor to make the robot follow the wall without touching it. Use the sonar sensor to stop the robot when it reaches the doorway.

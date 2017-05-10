@@ -1,4 +1,4 @@
-package org.jointheleague.ecolban.cleverrobot;
+package Assignments;
 /*********************************************************************************************
  * Vic's ultrasonic sensor running with Erik's Clever Robot for Pi
  * version 0.9, 170227

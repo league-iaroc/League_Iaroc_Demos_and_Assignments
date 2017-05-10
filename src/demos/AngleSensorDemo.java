@@ -1,4 +1,4 @@
-package org.jointheleague.ecolban.cleverrobot;
+package demos;
 
 import java.io.IOException;
 
@@ -6,17 +6,17 @@ import org.jointheleague.ecolban.rpirobot.IRobotAdapter;
 import org.jointheleague.ecolban.rpirobot.IRobotInterface;
 import org.jointheleague.ecolban.rpirobot.SimpleIRobot;
 
-public class MoveAndStopDemo extends IRobotAdapter {
+public class AngleSensorDemo extends IRobotAdapter {
 	Sonar sonar = new Sonar();
 	
-	public MoveAndStopDemo(IRobotInterface iRobot) {
+	public AngleSensorDemo(IRobotInterface iRobot) {
 		super(iRobot);
 	}
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("Try event listner, rev Monday 2030");
 		IRobotInterface base = new SimpleIRobot();
-		MoveAndStopDemo rob = new MoveAndStopDemo(base);
+		AngleSensorDemo rob = new AngleSensorDemo(base);
 		rob.setup();
 		while(rob.loop()){}
 		rob.shutDown();
@@ -26,20 +26,26 @@ public class MoveAndStopDemo extends IRobotAdapter {
 	
 	
 	private void setup() throws Exception {
-		//driveDirect moves the robot
-		//the first parameter is the left wheel speed
-		//the second parameter is the right wheel speed
-		driveDirect(-500, 500);
 		
-		//sleep(int) pauses the program for the indicated amount of time
-		//time is in milliseconds (1000ms = 1s)
-		sleep(2000);
-		
-		//robot must explicitly be told to stop or else it will go forever
-		driveDirect(0, 0);
 	}
 	
+	//int to keep track of the total distance the robot has traveled 
+	int totalAngle = 0;
 	private boolean loop() throws Exception{
+		
+		readSensors(100);//<--gotta read them sensors
+		
+		driveDirect(-200, 200);
+		
+		//getAngle() will return the angle the robot has turned since the
+		//last call to getAngle().
+		//Can you figure out the unit of measurement?
+		totalAngle += getAngle();
+		
+		if(totalAngle >= 1000){
+			driveDirect(0, 0);
+			return false;
+		}
 		
 		return true;
 	}

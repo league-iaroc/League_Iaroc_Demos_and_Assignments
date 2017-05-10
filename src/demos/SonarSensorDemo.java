@@ -1,4 +1,4 @@
-package org.jointheleague.ecolban.cleverrobot;
+package demos;
 
 /*********************************************************************************************
  * Vic's ultrasonic sensor running with Erik's Clever Robot for Pi

@@ -1,4 +1,4 @@
-package org.jointheleague.ecolban.cleverrobot;
+package demos;
 
 import java.io.IOException;
 
@@ -6,43 +6,42 @@ import org.jointheleague.ecolban.rpirobot.IRobotAdapter;
 import org.jointheleague.ecolban.rpirobot.IRobotInterface;
 import org.jointheleague.ecolban.rpirobot.SimpleIRobot;
 
-public class DistanceSensorDemo extends IRobotAdapter {
+public class BumpSensorDemo extends IRobotAdapter {
 	Sonar sonar = new Sonar();
 	
-	public DistanceSensorDemo(IRobotInterface iRobot) {
+	public BumpSensorDemo(IRobotInterface iRobot) {
 		super(iRobot);
 	}
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("Try event listner, rev Monday 2030");
 		IRobotInterface base = new SimpleIRobot();
-		DistanceSensorDemo rob = new DistanceSensorDemo(base);
+		BumpSensorDemo rob = new BumpSensorDemo(base);
 		rob.setup();
 		while(rob.loop()){}
 		rob.shutDown();
-		
 	}
 
-	
-	
 	private void setup() throws Exception {
-		
+
 	}
 	
-	//int to keep track of the total distance the robot has traveled 
-	int distanceDriven = 0;
 	private boolean loop() throws Exception{
-		
-		readSensors(100);//<--gotta read them sensors
+		readSensors(100); //<--This reads all of the robot's sensors
+		//this must be called at the top of loop if you are using the sensors
 		
 		driveDirect(200, 200);
 		
-		//getDistance will return the distance traveled in millimeters since the last
-		//time readSensors has been called
-		distanceDriven += getDistance();
-		
-		if(distanceDriven >= 1000){
+		//isBumpRight() and isBumpLeft() return true if they have been bumped
+		//since the last call to readSensors
+		//there is not an isBumpCenter() method so you have to check left and right
+		if(isBumpLeft() || isBumpRight()){
+			driveDirect(-100, -100);
+			sleep(500);
+			driveDirect(-500, 500);
+			sleep(3000);
 			driveDirect(0, 0);
+			
 			return false;
 		}
 		

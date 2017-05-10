@@ -1,4 +1,4 @@
-package org.jointheleague.ecolban.cleverrobot;
+package demos;
 
 import java.io.IOException;
 
