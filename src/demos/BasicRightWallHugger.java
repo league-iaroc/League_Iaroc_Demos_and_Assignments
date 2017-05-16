@@ -33,7 +33,7 @@ public class BasicRightWallHugger extends IRobotAdapter {
 		//LOOP CODE GOES HERE!!!!!
 		readSensors(100);
 		
-		driveDirect(200, 200);
+		driveDirect(200, 170);
 		
 		if(isBumpRight()){
 			driveDirect(-200, 200);
