@@ -1,4 +1,4 @@
-package Assignments;
+package demos;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import org.jointheleague.ecolban.rpirobot.SimpleIRobot;
 public class BasicRightWallHugger extends IRobotAdapter {
 	Sonar sonar = new Sonar();
 	
-	public AssignmentCode(IRobotInterface iRobot) {
+	public BasicRightWallHugger(IRobotInterface iRobot) {
 		super(iRobot);
 	}
 
